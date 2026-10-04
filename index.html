@@ -2936,7 +2936,8 @@
         .job.playing li:not(.act){opacity:1}
         .job li{transition:none;margin-bottom:14px}
         .job li>.demo{margin:12px 0 4px;padding:16px;animation:none;background-image:none}
-        .job li>.demo .pn{min-height:0;overflow:visible;box-sizing:border-box}
+        .job li>.demo .pn{overflow:visible;box-sizing:border-box}
+        .job li>.demo .tk{min-height:2.8em}
         .job li>.demo .bd{box-sizing:border-box;align-content:flex-start;overflow:hidden}
         .job .rp{margin-top:8px;font:600 12px 'Bricolage Grotesque',sans-serif;padding:5px 12px;border-radius:99px;border:1px solid #ffffff33;background:transparent;color:#f6f4ff;cursor:pointer;opacity:.75}
         .job .rp:hover{opacity:1}
@@ -3390,22 +3391,23 @@
             const jo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('.w2').forEach((w, i) => setTimeout(() => w.classList.add('lit'), 500 + i * 35)); jo.unobserve(e.target) } }), { threshold: .25 }); J.forEach(j => jo.observe(j));
             const mk = (job, ph, note) => {
                 const li = [...job.querySelectorAll('li')], rs = (e, c) => { e.classList.remove(c); void e.offsetWidth; e.classList.add(c) }, fits = [];
-                const fit = () => {
-                    fits.forEach(({ pn, bd, p }) => {
-                        pn.style.height = '';
-                        const w = bd.offsetWidth; if (!w) return;
-                        const cb = document.createElement('div'); cb.className = 'bd'; cb.style.cssText = 'position:absolute;visibility:hidden;height:auto;width:' + w + 'px';
-                        cb.innerHTML = (p.b || []).map(t => '<span class="bdg">' + t + '</span>').join(''); bd.parentNode.appendChild(cb); bd.style.minHeight = Math.max(26, cb.offsetHeight) + 'px'; cb.remove();
-                    });
+                const fitOne = ({ pn, bd, p }) => {
+                    const w = pn.offsetWidth; if (!w) return;
+                    const c = document.createElement('div'); c.className = 'pn'; c.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;height:auto;min-height:0;animation:none;width:' + w + 'px'; c.innerHTML = p.h;
+                    c.querySelectorAll('.tk b').forEach(x => x.textContent = '888'); const u = c.querySelector('.xu'); if (u) u.textContent = 'Which endpoints cost the most?';
+                    pn.parentNode.appendChild(c); const h = c.offsetHeight; c.remove(); pn.style.minHeight = h + 'px';
+                    const cb = document.createElement('div'); cb.className = 'bd'; cb.style.cssText = 'position:absolute;visibility:hidden;height:auto;width:' + bd.offsetWidth + 'px';
+                    cb.innerHTML = (p.b || []).map(t => '<span class="bdg">' + t + '</span>').join(''); bd.parentNode.appendChild(cb); bd.style.minHeight = Math.max(26, cb.offsetHeight) + 'px'; cb.remove();
                 };
+                const fit = () => fits.forEach(fitOne);
                 addEventListener('resize', fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); setTimeout(fit, 0);
                 ph.forEach((p, i) => {
                     const host = li[p.k ?? i]; if (!host) return;
                     const d = document.createElement('div'); d.className = 'demo';
                     d.innerHTML = '<div class="pn"></div><div class="bd"></div><small class="note"></small>';
                     d.querySelector('.note').textContent = note; host.appendChild(d);
-                    const pn = d.querySelector('.pn'), bd = d.querySelector('.bd'); let vis = false; fits.push({ pn, bd, p });
-                    const once = async () => { bd.innerHTML = ''; pn.innerHTML = p.h; rs(pn, 'sw'); try { await p.f(pn, d) } catch (e) { } (p.b || []).forEach(t => { const x = document.createElement('span'); x.className = 'bdg'; x.textContent = t; bd.appendChild(x) }); await sl(2200) };
+                    const pn = d.querySelector('.pn'), bd = d.querySelector('.bd'); let vis = false; const ent = { pn, bd, p }; fits.push(ent); if (window.ResizeObserver) new ResizeObserver(() => { const m = parseFloat(pn.style.minHeight) || 0; if (pn.offsetHeight > m + 1) pn.style.minHeight = pn.offsetHeight + 'px' }).observe(pn);
+                    const once = async () => { fitOne(ent); bd.innerHTML = ''; pn.innerHTML = p.h; rs(pn, 'sw'); try { await p.f(pn, d) } catch (e) { } (p.b || []).forEach(t => { const x = document.createElement('span'); x.className = 'bdg'; x.textContent = t; bd.appendChild(x) }); await sl(2200) };
                     new IntersectionObserver(es => vis = es[0].isIntersecting, { threshold: .3 }).observe(d);
                     (async () => { do { while (!vis && !calm) await sl(300); await once() } while (!calm) })();
                 })
