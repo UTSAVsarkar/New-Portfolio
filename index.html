@@ -2926,6 +2926,45 @@
                 -webkit-mask-image:radial-gradient(circle 150px at var(--mx,50%) var(--my,50%),#000 0,transparent 100%);mask-image:radial-gradient(circle 150px at var(--mx,50%) var(--my,50%),#000 0,transparent 100%)}
             .card:hover>.srcpeek{opacity:.38}
         }
+
+        /* ===== MOBILE ===== */
+        html{overflow-x:clip}
+        .flowm{display:none}
+        .tl{grid-template-columns:minmax(0,1fr)}
+        .tl>*,.bento>*,.stats>*,.grid>*,.job li{min-width:0}
+        @media(max-width:640px){
+            body{overflow-x:clip}
+            section{padding:56px 16px}
+            .flowd{display:none}
+            .flowm{display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:20px}
+            .flowm div{border:1.5px solid var(--line);border-radius:16px;padding:12px 16px}
+            .flowm b{display:block;font:700 15px 'Bricolage Grotesque',sans-serif}
+            .flowm span{font-size:13px;color:var(--mute)}
+            .flowm i{font-style:normal;text-align:center;color:var(--b);font-size:18px;line-height:1}
+            .tl{padding-left:16px}
+            .card{padding:20px;border-radius:20px}
+            .card:hover{transform:none!important}
+        }
+
+        html{overflow-x:hidden}
+        @supports(overflow:clip){html{overflow-x:clip}}
+        @media(max-width:640px){
+            .rv.fx-l:not(.in),.rv.fx-r:not(.in){transform:translateY(24px)}
+            h2{font-size:clamp(26px,8vw,34px);line-height:1.15}
+            .lead{font-size:16px}
+            .job li{font-size:15px;line-height:1.55}
+            .job h3{font-size:19px}
+            .job .llmrow{flex-wrap:wrap;gap:8px}
+            .job .hub{white-space:normal;text-align:center}
+            .job .per{flex-wrap:wrap}
+            .job .mods{grid-template-columns:repeat(2,1fr)}
+            .tl .job:before{left:-30px}
+            .hero{padding-left:16px;padding-right:16px}
+            .btns{gap:10px}
+            .btn{padding:12px 20px}
+            .contact .btns{flex-direction:column;align-items:stretch;text-align:center}
+            #mt{bottom:16px}
+        }
     </style>
 </head>
 
@@ -3023,7 +3062,8 @@
     <section id="platform" style="padding-top:20px">
         <h2 class="rv">Featured build: AI Governance platform</h2>
         <p class="lead rv">How data flows from raw tables to insight in the platform I built on Databricks.</p>
-        <div class="card flow rv"><svg viewBox="0 0 900 170" role="img"
+        <div class="card flow flowm rv" aria-label="Flow from Delta tables to Llama 3.3 70B to Genie Space to live dashboard"><div><b>Delta tables</b><span>14+ governance sources</span></div><i>&darr;</i><div><b>Llama 3.3 70B</b><span>Evidence checks, gap finding</span></div><i>&darr;</i><div><b>Genie Space</b><span>Daily cached insights</span></div><i>&darr;</i><div><b>Dashboard</b><span>6 modules, live</span></div></div>
+        <div class="card flow flowd rv"><svg viewBox="0 0 900 170" role="img"
                 aria-label="Flow from Delta tables to Llama 3.3 70B to Genie Space to live dashboard">
                 <rect x="10" y="40" width="170" height="90" rx="18" /><text x="30" y="80">Delta tables</text><text
                     class="t" x="30" y="104">14+ governance sources</text>
@@ -3525,6 +3565,8 @@
   });
 })();
 </script>
+
+
 </body>
 
 </html>
