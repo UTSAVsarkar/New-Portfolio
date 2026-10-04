@@ -564,6 +564,29 @@
             }
         }
 
+        html,body{overflow-x:clip;max-width:100%}
+        #projects .proj>.demo{min-width:0;box-sizing:border-box}
+        #projects .proj .json,#projects .proj .sheet,#projects .proj .mail{min-width:0;overflow-wrap:anywhere}
+        .ro{min-height:46px!important}
+        @media(max-width:900px){
+            #projects .proj{grid-template-columns:minmax(0,1fr)!important}
+            #projects .proj>.demo{width:100%;max-width:100%}
+            .stage{grid-template-columns:minmax(0,1fr)!important;min-height:0!important;gap:12px}
+            .stage .msg{min-height:96px}
+            .stage .msg.go{transform:translateY(8px) scale(.96)}
+            .stage .json{min-height:84px}
+            .stage .sheet{min-height:88px}
+            .stage .mail{min-height:20px}
+            .cap{min-height:96px;align-content:flex-start}
+        }
+        .flowm{display:none}
+        .fn{padding:14px 18px;border:1.5px solid var(--line);border-radius:18px;background:var(--card);animation:np 4.8s ease-in-out infinite;animation-delay:var(--d)}
+        .fn b{display:block;font:600 15px 'DM Sans',sans-serif;color:var(--ink)}
+        .fn span{font:400 13px 'DM Sans',sans-serif;color:var(--mute)}
+        .fl{position:relative;height:34px;width:0;margin:0 auto;border-left:2.5px dashed var(--b)}
+        .fl i{position:absolute;left:-7.25px;top:0;width:12px;height:12px;border-radius:50%;background:var(--c);animation:flowdot 1.4s linear infinite;animation-delay:var(--d)}
+        @keyframes flowdot{from{top:-4px}to{top:26px}}
+        @media(max-width:700px){.flow{overflow:visible}.flow svg{display:none}.flowm{display:block}}
         .tl {
             position: relative;
             padding-left: 34px;
@@ -2929,6 +2952,140 @@
         .ar:first-child .at i{background:#ec5f86}
         .ar.on .at i{width:var(--w)}
         .at b{font:700 12px 'Bricolage Grotesque',sans-serif;flex:none}
+                /* ===== work demos v4: HTML charts, mobile-first ===== */
+        .job li>.demo{min-width:0;box-sizing:border-box}
+        .hr{margin-bottom:10px}
+        .hh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:600 13px 'Bricolage Grotesque',sans-serif;margin-bottom:4px}
+        .hh span{min-width:0;overflow-wrap:anywhere}
+        .hh em{font:600 10.5px 'Bricolage Grotesque',sans-serif;font-style:normal;padding:1px 8px;border:1px solid #ffffff33;border-radius:99px;color:#cfc8ff;margin-left:4px;white-space:nowrap}
+        .hh b{font:700 12px 'Bricolage Grotesque',sans-serif;color:#cfc8ff;opacity:0;transition:opacity .4s;white-space:nowrap}
+        .hr.on .hh b{opacity:1}
+        .ht{height:9px;border-radius:5px;background:#ffffff14;overflow:hidden;margin-bottom:3px}
+        .hf{display:block;height:100%;border-radius:5px;width:0;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+        .hr.on .hf{width:var(--w)}
+        .dv2{display:grid;grid-template-columns:1fr 1fr;height:9px;background:#ffffff14;border-radius:5px;overflow:hidden}
+        .dv2 .l{display:flex;justify-content:flex-end;border-right:2px solid #ffffff44}
+        .dv2 .hf{border-radius:0}
+        .dg{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:2px 0 12px;flex:1}
+        .dd{aspect-ratio:1;width:100%;max-width:16px;justify-self:center;border-radius:50%;background:#ffffff22;transition:background .3s}
+        .dd.on{background:#35d6c2}
+        .dd.fa.on{background:#f5b74a}
+        .kp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+        .kp div{background:#ffffff10;border:1px solid #ffffff1c;border-radius:10px;padding:8px 10px}
+        .kp b{display:block;font:800 18px 'Bricolage Grotesque',sans-serif}
+        .kp span{font-size:11px;color:#cfc8ff}
+        .vc,.vs{display:flex;align-items:flex-end;gap:6px;height:112px;margin-bottom:6px}
+        .vs{height:100px;gap:3px}
+        .vcol{display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;height:100%;gap:6px;text-align:center;font-size:11px;color:#cfc8ff;min-width:0}
+        .vb{height:var(--h,0);border-radius:4px 4px 2px 2px;transform-origin:50% 100%;transform:scaleY(0);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+        .vs .vb{flex:1}
+        .vb.on{transform:scaleY(1)}
+        .ax{display:flex;justify-content:space-between;font-size:11px;color:#cfc8ff;margin-bottom:8px}
+        .vd{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+        .dn{position:relative;width:84px;height:84px;flex:none}
+        .dn svg{width:100%;height:100%;display:block}
+        .dc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;white-space:nowrap;font:800 18px 'Bricolage Grotesque',sans-serif}
+        .dc b{display:inline}
+        .vd .dg{margin:0}
+        .lw{position:relative}
+        .ln{display:block;width:100%;height:auto}
+        .pl{position:absolute;right:0;top:-4px;background:#35d6c2;color:#0b0a24;font:800 12px 'Bricolage Grotesque',sans-serif;padding:2px 9px;border-radius:99px;opacity:0;transition:opacity .4s}
+        .pl.on{opacity:1}
+        @media(max-width:600px){.job li>.demo{margin-left:-38px;margin-right:0;width:calc(100% + 38px)}}
+
+                /* ===== work demos v5: unique animations ===== */
+        .ztb{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+        .ztb i{aspect-ratio:1.4;border-radius:4px;background:#ffffff1c;transition:.3s}
+        .ztb i.on{background:#9a82ff;box-shadow:0 0 8px #9a82ff88}
+        .zar{text-align:center;font-size:10px;letter-spacing:6px;color:#9a82ff;margin:6px 0}
+        .zmg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+        .zmt{font:600 11.5px 'Bricolage Grotesque',sans-serif;text-align:center;padding:9px 4px;border:1px solid #ffffff22;border-radius:9px;opacity:.4;transition:.4s}
+        .zmt.on{opacity:1;border-color:#35d6c2;background:#35d6c222;transform:scale(1.04)}
+        .zmt.on:before{content:'✓ ';color:#35d6c2}
+        .zev{position:relative;margin-bottom:10px}
+        .zbm{position:absolute;left:0;right:0;top:0;height:2px;background:#35d6c2;box-shadow:0 0 12px 3px #35d6c2aa;z-index:2;transition:top .4s,opacity .4s}
+        .zrw{display:flex;align-items:center;gap:8px;padding:6px 0;font:600 12px 'Bricolage Grotesque',sans-serif}
+        .zrw span{width:84px;flex:none}
+        .zrw u{flex:1;height:6px;border-radius:3px;background:#ffffff1c;transition:.4s}
+        .zrw{height:30px;box-sizing:border-box}
+        .zrw s{width:16px;height:16px;line-height:16px;font-size:13px;text-align:center;text-decoration:none;overflow:hidden}
+        .zrw.on u{background:#35d6c255}
+        .zrw.on s:after{content:'✓';color:#35d6c2}
+        .zrw.gp.on u{background:#f5b74a66}
+        .zrw.gp.on s:after{content:'⚠';color:#f5b74a}
+        .zlane{display:grid;grid-template-columns:78px 1fr 20px;align-items:center;gap:8px;font:600 12px 'Bricolage Grotesque',sans-serif;margin-bottom:8px}
+        .zlane div{position:relative;height:12px;border-radius:6px;background:#ffffff14;border-right:3px solid #ffffff44}
+        .zrn{position:absolute;left:0;top:-2px;width:16px;height:16px;border-radius:50%;transition:left .25s ease-out}
+        .zpc{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}
+        .zpc span{font:600 11.5px 'Bricolage Grotesque',sans-serif;padding:4px 10px;border-radius:99px;border:1px solid #ffffff2a;opacity:.5;transition:.3s}
+        .zpc span.on{opacity:1;border-color:#35d6c2;color:#35d6c2}
+        .zpc span.on:after{content:' ✓'}
+        .zrd{position:relative;width:170px;height:170px;max-width:100%;margin:0 auto 12px;border-radius:50%;border:1px solid #35d6c244;overflow:hidden;background:repeating-radial-gradient(circle,transparent 0 27px,#ffffff18 27px 28px)}
+        .zsw{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#35d6c200 0deg,#35d6c299 70deg,#35d6c200 71deg);animation:zspin 2.2s linear infinite}
+        @keyframes zspin{to{transform:rotate(360deg)}}
+        .zbl{position:absolute;width:7px;height:7px;margin:-3.5px;border-radius:50%;background:#f6f4ff;opacity:0;transform:scale(0)}
+        .zbl.on{opacity:1;transform:scale(1);background:#35d6c2;transition:.4s;box-shadow:0 0 8px #35d6c2}
+        .ztr{display:grid;gap:7px;margin:6px 0 10px}
+        .zst{display:grid;grid-template-columns:18px auto 1fr;gap:8px;align-items:center;font:600 12px 'Bricolage Grotesque',sans-serif;opacity:.35;transition:.3s}
+        .zst s{width:12px;height:12px;border-radius:50%;border:2px solid #ffffff55;text-decoration:none}
+        .zst em{font-style:normal;font-weight:500;color:#cfc8ff;font-size:11.5px;opacity:0;transition:.4s}
+        .zst.run{opacity:1}
+        .zst.run s{border-color:#9a82ff #ffffff22 #ffffff22;animation:zspin .7s linear infinite}
+        .zst.ok{opacity:1}
+        .zst.ok s{background:#35d6c2;border-color:#35d6c2}
+        .zst.ok em{opacity:1}
+        .xa{margin:0 auto 6px 0;width:fit-content;max-width:92%;min-height:34px;box-sizing:border-box;padding:8px 12px;border-radius:14px 14px 14px 4px;background:#ffffff18;border:1px solid #ffffff22;font-size:13px;line-height:1.4}
+        .zmz{position:relative;height:112px;margin-bottom:8px}
+        .zqc{position:absolute;top:8px;left:calc(var(--i)*25.5%);width:22%;height:92px;box-sizing:border-box;padding:8px 6px;border-radius:9px;background:#9a82ff2a;border:1px solid #9a82ff;display:grid;align-content:start;gap:6px;transition:left .8s cubic-bezier(.6,0,.2,1),opacity .6s .5s,transform .8s}
+        .zqc b{font:700 12px 'Bricolage Grotesque',sans-serif}
+        .zqc i{height:5px;border-radius:3px;background:#ffffff33}
+        .zmz.m .zqc{left:36%;opacity:0;transform:scale(.7)}
+        .zun{position:absolute;left:25%;right:25%;top:8px;height:92px;border-radius:12px;background:#35d6c222;border:1px solid #35d6c2;display:grid;place-content:center;text-align:center;font:800 28px 'Bricolage Grotesque',sans-serif;opacity:0;transform:scale(.6);transition:.6s .7s}
+        .zun b{font-size:inherit}
+        .zun span{display:block;font:500 11px 'Bricolage Grotesque',sans-serif;color:#cfc8ff}
+        .zmz.m .zun{opacity:1;transform:none}
+        .zfg{position:relative;display:flex;justify-content:space-between;font-size:11px;color:#cfc8ff;padding-bottom:20px;margin-top:4px}
+        .zbar{position:absolute;left:0;right:0;top:18px;height:10px;border-radius:5px;background:linear-gradient(90deg,#35d6c2,#ffffff22 50%,#ec5f86)}
+        .znd{position:absolute;top:-5px;width:4px;height:20px;border-radius:2px;background:#fff;box-shadow:0 0 8px #fff;transform:translateX(-50%);transition:left .6s cubic-bezier(.3,1.3,.5,1)}
+        .zfc{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+        .zfc span{font:600 11.5px 'Bricolage Grotesque',sans-serif;padding:4px 10px;border-radius:99px;opacity:.25;transition:.4s;border:1px solid}
+        .zfc .zdn{color:#35d6c2}.zfc .zup{color:#ec5f86}
+        .zfc span.on{opacity:1}
+        .zcm{display:grid;grid-template-columns:50px 1fr 1fr;gap:6px;align-items:center;font-size:11px;color:#cfc8ff;text-align:center;margin-bottom:10px}
+        .zc{height:54px;border-radius:10px;display:grid;place-items:center;opacity:.15;transform:scale(.85);transition:.5s}
+        .zc.on{opacity:1;transform:none}
+        .zc.t{background:#35d6c233;border:1px solid #35d6c2}
+        .zc.w{background:#f5b74a22;border:1px solid #f5b74a88}
+        .zc b{font:800 22px 'Bricolage Grotesque',sans-serif;color:#f6f4ff}
+        .zbw{border:1px solid #ffffff2a;border-radius:10px;overflow:hidden;margin-bottom:10px}
+        .zbh{display:flex;gap:5px;padding:7px 9px;background:#ffffff12}
+        .zbh i{width:8px;height:8px;border-radius:50%;background:#ffffff44}
+        .zbb{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:9px}
+        .zbk{height:30px;border-radius:6px;background:#9a82ff55;opacity:0;transform:translateY(8px) scale(.9);transition:.45s}
+        .zbk.hd{grid-column:1/3;height:16px;background:#35d6c255}
+        .zbk.hf2{grid-column:1/3}
+        .zbk.on{opacity:1;transform:none}
+        .zsr{display:flex;justify-content:space-between;align-items:center;font:600 12px 'Bricolage Grotesque',sans-serif;margin-bottom:8px}
+        .zsr i{font-style:normal;font-size:18px;color:#ffffff30;transition:.3s}
+        .zsr i.on{color:#f5b74a;transform:scale(1.2)}
+        .zkb{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;height:112px;margin-bottom:8px}
+        .zkb h6{margin:0;font:600 11px 'Bricolage Grotesque',sans-serif;color:#cfc8ff;text-align:center;padding-bottom:4px;border-bottom:1px solid #ffffff22}
+        .ztk{position:absolute;top:calc(26px + var(--r)*20px);left:calc(var(--c)*33.333% + 5px);width:calc(33.333% - 10px);height:15px;border-radius:5px;background:#9a82ff;transition:left .45s cubic-bezier(.5,0,.2,1),background .3s}
+        .ztk.ok{background:#35d6c2}
+        .zml{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;font-size:20px}
+        .zml i{font-style:normal;transition:.45s}
+        .zml i.gone{opacity:.12;transform:translateY(18px) scale(.4);filter:grayscale(1)}
+        .zgr{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px 0 10px;font:600 12px 'Bricolage Grotesque',sans-serif}
+        .zgr b{font-size:22px;color:#35d6c2;display:inline-block}
+        .zgr.spin b{animation:zspin 1s linear infinite}
+        .zpp{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+        .pe{position:relative;width:24px;height:26px;color:#9a82ff;transition:.4s}
+        .pe:before{content:'';position:absolute;left:8px;top:1px;width:8px;height:8px;border-radius:50%;background:currentColor}
+        .pe:after{content:'';position:absolute;left:3px;top:11px;width:18px;height:12px;border-radius:9px 9px 3px 3px;background:currentColor}
+        .pe.n{color:#35d6c2;opacity:0;transform:scale(.3)}
+        .pe.n.on{opacity:1;transform:none}
+        @media(prefers-reduced-motion:reduce){.zsw,.zgr.spin b{animation:none}}
+
         /* ===== work experience: each point followed by its own demo ===== */
         .job{display:block}
         .job .w2{opacity:1!important}
@@ -2937,7 +3094,6 @@
         .job li{transition:none;margin-bottom:14px}
         .job li>.demo{margin:12px 0 4px;padding:16px;animation:none;background-image:none}
         .job li>.demo .pn{overflow:visible;box-sizing:border-box}
-        .job li>.demo .tk{min-height:2.8em}
         .job li>.demo .bd{box-sizing:border-box;align-content:flex-start;overflow:hidden}
         .job .rp{margin-top:8px;font:600 12px 'Bricolage Grotesque',sans-serif;padding:5px 12px;border-radius:99px;border:1px solid #ffffff33;background:transparent;color:#f6f4ff;cursor:pointer;opacity:.75}
         .job .rp:hover{opacity:1}
@@ -3074,7 +3230,7 @@
                 <path d="M182 85H248" />
                 <path d="M442 85H508" />
                 <path d="M682 85H748" />
-            </svg></div>
+            </svg><div class="flowm" aria-hidden="true"><div class="fn" style="--d:0.0s"><b>Delta tables</b><span>14+ governance sources</span></div><div class="fl" style="--d:0.0s"><i></i></div><div class="fn" style="--d:1.2s"><b>Llama 3.3 70B</b><span>Evidence checks, gap finding</span></div><div class="fl" style="--d:0.5s"><i></i></div><div class="fn" style="--d:2.4s"><b>Genie Space</b><span>Daily cached insights</span></div><div class="fl" style="--d:1.0s"><i></i></div><div class="fn" style="--d:3.5999999999999996s"><b>Dashboard</b><span>6 modules, live</span></div></div></div>
     </section>
 
     <section id="work" style="padding-top:20px">
@@ -3394,7 +3550,7 @@
                 const fitOne = ({ pn, bd, p }) => {
                     const w = pn.offsetWidth; if (!w) return;
                     const c = document.createElement('div'); c.className = 'pn'; c.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;height:auto;min-height:0;animation:none;width:' + w + 'px'; c.innerHTML = p.h;
-                    c.querySelectorAll('.tk b').forEach(x => x.textContent = '888'); const u = c.querySelector('.xu'); if (u) u.textContent = 'Which endpoints cost the most?';
+                    c.querySelectorAll('.tk b').forEach(x => x.textContent = '888'); c.querySelectorAll('[data-full]').forEach(x => x.textContent = x.dataset.full);
                     pn.parentNode.appendChild(c); const h = c.offsetHeight; c.remove(); pn.style.minHeight = h + 'px';
                     const cb = document.createElement('div'); cb.className = 'bd'; cb.style.cssText = 'position:absolute;visibility:hidden;height:auto;width:' + bd.offsetWidth + 'px';
                     cb.innerHTML = (p.b || []).map(t => '<span class="bdg">' + t + '</span>').join(''); bd.parentNode.appendChild(cb); bd.style.minHeight = Math.max(26, cb.offsetHeight) + 'px'; cb.remove();
@@ -3406,7 +3562,7 @@
                     const d = document.createElement('div'); d.className = 'demo';
                     d.innerHTML = '<div class="pn"></div><div class="bd"></div><small class="note"></small>';
                     d.querySelector('.note').textContent = note; host.appendChild(d);
-                    const pn = d.querySelector('.pn'), bd = d.querySelector('.bd'); let vis = false; const ent = { pn, bd, p }; fits.push(ent); if (window.ResizeObserver) new ResizeObserver(() => { const m = parseFloat(pn.style.minHeight) || 0; if (pn.offsetHeight > m + 1) pn.style.minHeight = pn.offsetHeight + 'px' }).observe(pn);
+                    const pn = d.querySelector('.pn'), bd = d.querySelector('.bd'); let vis = false; const ent = { pn, bd, p }; fits.push(ent); if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(() => { const m = parseFloat(pn.style.minHeight) || 0; if (pn.offsetHeight > m + 1) pn.style.minHeight = pn.offsetHeight + 'px' })).observe(pn);
                     const once = async () => { fitOne(ent); bd.innerHTML = ''; pn.innerHTML = p.h; rs(pn, 'sw'); try { await p.f(pn, d) } catch (e) { } (p.b || []).forEach(t => { const x = document.createElement('span'); x.className = 'bdg'; x.textContent = t; bd.appendChild(x) }); await sl(2200) };
                     new IntersectionObserver(es => vis = es[0].isIntersecting, { threshold: .3 }).observe(d);
                     (async () => { do { while (!vis && !calm) await sl(300); await once() } while (!calm) })();
@@ -3418,98 +3574,80 @@
             const typ = async (e, t, ms = 28) => { for (let i = 1; i <= t.length; i++) { e.textContent = t.slice(0, i); await sl(ms) } };
             const DISC = '<div class="hub">Auto-discovery</div><div class="ep s"></div><div class="tk">Serving endpoints found <b>0</b></div>',
                 STR = '<div class="kg">' + rows([['Active runs', '18'], ['P95 latency', '470ms'], ['Guardrail blocks', '2'], ['Cost burn / hr', '$14.2']], ([l, v]) => `<div class="kt"><b>${v}</b><span>${l}</span><svg viewBox="0 0 60 18"><polyline/></svg></div>`) + '</div><div class="rf"><i></i></div><div class="tk">Auto-refresh every 30 seconds</div>';
-            const xs = (h, vb = '0 0 300 120') => `<svg class="xs" viewBox="${vb}">${h}</svg>`;
-            const T = (x, y, t, a = 'start', c = 'xt') => `<text class="${c}" x="${x}" y="${y}" text-anchor="${a}">${t}</text>`;
             const G = '#35d6c2', V = '#9a82ff', A = '#f5b74a', PK = '#ec5f86';
             const grow = async (els, gap) => { for (const e of els) { e.classList.add('on'); await sl(gap) } };
             const tkb = p => [...p.querySelectorAll('.tk b')];
-            // ---------- Infocepts ----------
-            const MODS = [['Inventory', 3], ['Risk', 2], ['Compliance', 3], ['Security', 2], ['Cost', 2], ['Monitoring', 2]];
-            const DOM = ['Strategy', 'Data', 'Governance', 'Security', 'Models', 'Operations', 'People'], SC = [.85, .7, .55, .8, .75, .5, .8];
-            const rp = (i, r) => { const a = -Math.PI / 2 + i * 2 * Math.PI / 7; return [150 + r * Math.cos(a), 76 + r * Math.sin(a)] };
-            const rpts = k => DOM.map((_, i) => rp(i, 52 * k).map(v => v.toFixed(1)).join(',')).join(' ');
-            const PER = ['24h', '7d', '30d', '90d'], LV = [3.2, 4.6, 6.1, 7.8];
-            const EP = [['summarize-claims-agent', 92, 'MCP-1'], ['risk-scoring-llm', 74, 'MCP-2'], ['policy-search-rag', 51, 'MCP-1'], ['support-bot-v2', 33, 'MCP-3']];
-            const chsH = '<div class="chs"><span>Cost query</span><span>Endpoint lookup</span><span>MCP map</span></div>';
+            const MODS = ['Inventory', 'Risk', 'Compliance', 'Security', 'Cost', 'Monitoring'];
+            const DOM = ['Strategy', 'Data', 'Governance', 'Security', 'Models', 'Operations', 'People'];
+            const BL = Array.from({ length: 50 }, (_, i) => { const a = i * 2.39996, r = Math.sqrt((i + 1) / 50) * 44; return `<i class="zbl" style="left:${(50 + r * Math.cos(a)).toFixed(1)}%;top:${(50 + r * Math.sin(a)).toFixed(1)}%"></i>` }).join('');
+            const KPI = '<div class="kp">' + ['Active runs', 'P95 latency', 'Guardrail blocks', 'Cost / hr'].map(l => `<div><b>--</b><span>${l}</span></div>`).join('') + '</div>';
             mk(J[0], [
-                {
+                { // tables -> modules
                     b: ['6 modules', '14+ Delta tables'],
-                    h: xs(MODS.map(([n, v], i) => T(0, 17 + i * 18, n) + `<rect class="xh" x="64" y="${8 + i * 18}" width="${v * 62}" height="11" rx="3" fill="${i % 2 ? G : V}"/>` + T(68 + v * 62, 17 + i * 18, v + ' tables')).join(''), '0 0 300 112') + '<div class="tk">Delta tables <b>0</b> · Modules <b>0</b>/6</div>',
-                    f: async p => { const bs = p.querySelectorAll('.xh'), [tb, mb] = tkb(p); let t = 0; for (let i = 0; i < 6; i++) { bs[i].classList.add('on'); t += MODS[i][1]; tb.textContent = t + (i == 5 ? '+' : ''); mb.textContent = i + 1; await sl(380) } await sl(900) }
+                    h: `<div class="ztb">${'<i></i>'.repeat(14)}</div><div class="zar">▼ ▼ ▼</div><div class="zmg">${MODS.map(n => `<div class="zmt">${n}</div>`).join('')}</div><div class="tk">Delta tables <b>0</b> · Modules <b>0</b>/6</div>`,
+                    f: async p => { const ts = p.querySelectorAll('.ztb i'), ms = p.querySelectorAll('.zmt'), [tb, mb] = tkb(p); for (let i = 0; i < 14; i++) { ts[i].classList.add('on'); tb.textContent = i + 1 + (i == 13 ? '+' : ''); await sl(90) } for (let i = 0; i < 6; i++) { ms[i].classList.add('on'); mb.textContent = i + 1; await sl(320) } await sl(900) }
                 },
-                {
+                { // scanning evidence
                     b: ['43 questions', '7 domains'],
-                    h: xs([.33, .66, 1].map(k => `<polygon points="${rpts(k)}" fill="none" stroke="#ffffff22"/>`).join('') + DOM.map((_, i) => `<line x1="150" y1="76" x2="${rp(i, 52)[0]}" y2="${rp(i, 52)[1]}" stroke="#ffffff18"/>`).join('') +
-                        `<polygon class="xr" points="${DOM.map((_, i) => rp(i, 52 * SC[i]).map(v => v.toFixed(1)).join(',')).join(' ')}" fill="${G}44" stroke="${G}" stroke-width="2"/>` +
-                        [2, 5].map(i => `<circle class="xg" cx="${rp(i, 52 * SC[i])[0]}" cy="${rp(i, 52 * SC[i])[1]}" r="4"/>`).join('') +
-                        DOM.map((n, i) => { const [x, y] = rp(i, 64); return T(x.toFixed(1), (y + 3).toFixed(1), n, x < 140 ? 'end' : x > 160 ? 'start' : 'middle') }).join(''), '0 0 300 148') + '<div class="tk">Questions checked <b>0</b>/43 · Gaps flagged <b>0</b></div>',
-                    f: async p => { const [q, g] = tkb(p); p.querySelector('.xr').classList.add('on'); ct(q, 43, 1600); await sl(1800); let n = 0; for (const e of p.querySelectorAll('.xg')) { e.classList.add('on'); g.textContent = ++n; await sl(500) } await sl(1000) }
+                    h: `<div class="zev"><div class="zbm"></div>${DOM.map((n, i) => `<div class="zrw${i == 2 || i == 5 ? ' gp' : ''}"><span>${n}</span><u></u><s></s></div>`).join('')}</div><div class="tk">Questions checked <b>0</b>/43 · Gaps flagged <b>0</b></div>`,
+                    f: async p => { const [q, g] = tkb(p), rs = [...p.querySelectorAll('.zrw')], bm = p.querySelector('.zbm'); ct(q, 43, 2600); let n = 0; for (const r of rs) { bm.style.top = r.offsetTop + r.offsetHeight / 2 + 'px'; await sl(260); r.classList.add('on'); if (r.classList.contains('gp')) g.textContent = ++n; await sl(160) } bm.style.opacity = 0; await sl(1100); bm.style.top = '0'; bm.style.opacity = 1 }
                 },
-                {
+                { // race
                     b: ['4 cached periods', 'Instant load'],
-                    h: xs(`<rect x="0" y="2" width="7" height="7" rx="2" fill="${PK}"/>` + T(11, 9, 'Live query') + `<rect x="68" y="2" width="7" height="7" rx="2" fill="${G}"/>` + T(79, 9, 'Cached') +
-                        PER.map((n, i) => { const x = 26 + i * 68, h = LV[i] * 10; return T(x + 24, 114, n, 'middle') + `<g class="xg2"><rect class="xb" x="${x}" y="${100 - h}" width="22" height="${h}" rx="3" fill="${PK}"/>` + T(x + 11, 97 - h, LV[i] + 's', 'middle', 'xv') + `<rect class="xb" x="${x + 26}" y="97" width="22" height="3" rx="1.5" fill="${G}"/>` + T(x + 37, 94, '<1s', 'middle', 'xv') + '</g>' }).join(''), '0 0 300 120') + '<div class="tk">Dashboard load time, live query vs cached</div>',
-                    f: async p => { await grow(p.querySelectorAll('.xg2'), 480); await sl(1200) }
+                    h: `<div class="zlane"><span>Live query</span><div><i class="zrn" style="background:${PK}"></i></div><em>⏳</em></div><div class="zlane"><span>Cached</span><div><i class="zrn" style="background:${G}"></i></div><em>⚡</em></div><div class="zpc">${['24h', '7 days', '30 days', '90 days'].map(n => `<span>${n}</span>`).join('')}</div><div class="tk">Live <b>0.0</b>s · Cached <b>0.0</b>s</div>`,
+                    f: async p => { const rn = p.querySelectorAll('.zrn'), cs = [...p.querySelectorAll('.zpc span')], [lb, cb] = tkb(p); await sl(500); rn[1].style.left = 'calc(100% - 16px)'; cb.textContent = '0.3'; rn[0].style.transition = 'left 2.6s linear'; rn[0].style.left = 'calc(100% - 16px)'; ct(lb, 7.8, 2600, 1); await sl(800); for (const c of cs) { c.classList.add('on'); await sl(420) } await sl(1500); rn.forEach(r => { r.style.transition = 'none'; r.style.left = '0' }) }
                 },
-                {
+                { // radar scan
                     b: ['50+ endpoints', '30s refresh'],
-                    h: xs(Array.from({ length: 50 }, (_, i) => `<circle class="xd" cx="${8 + i % 10 * 12}" cy="${14 + Math.floor(i / 10) * 16}" r="4"/>`).join('') + T(150, 10, 'P95 latency (ms)') + '<line x1="150" y1="90" x2="296" y2="90" stroke="#ffffff22"/><polyline class="xl" points="" fill="none" stroke="' + G + '" stroke-width="2" stroke-linejoin="round"/>', '0 0 300 100') + '<div class="tk">Endpoints found <b>0</b> · Active runs <b>--</b> · P95 <b>--</b>ms · refresh 30s</div>',
-                    f: async p => {
-                        const ds = p.querySelectorAll('.xd'), [eb, rb, lb] = tkb(p), pl = p.querySelector('.xl'); for (let i = 0; i < 50; i++) { ds[i].classList.add('on'); eb.textContent = i + 1 + (i == 49 ? '+' : ''); await sl(35) }
-                        const H = Array.from({ length: 12 }, () => 440 + Math.random() * 70 | 0), draw = () => pl.setAttribute('points', H.map((v, i) => `${(152 + i * 12.8).toFixed(1)},${(88 - (v - 420) / 120 * 62).toFixed(1)}`).join(' '));
-                        draw(); for (let t = 0; t < 5; t++) { rb.textContent = 14 + Math.random() * 10 | 0; lb.textContent = H[11]; bump(rb); bump(lb); await sl(650); H.push(430 + Math.random() * 90 | 0); H.shift(); draw() } await sl(300)
-                    }
+                    h: `<div class="zrd"><div class="zsw"></div>${BL}</div>${KPI}<div class="tk">Endpoints found <b>0</b> · refresh every 30s</div>`,
+                    f: async p => { const bl = p.querySelectorAll('.zbl'), kb = [...p.querySelectorAll('.kp b')], eb = p.querySelector('.tk b'); for (let i = 0; i < 50; i++) { bl[i].classList.add('on'); eb.textContent = i + 1 + (i == 49 ? '+' : ''); await sl(60) } for (let t = 0; t < 5; t++) { const v = [14 + Math.random() * 10 | 0, (430 + Math.random() * 90 | 0) + 'ms', Math.random() * 5 | 0, '$' + (13 + Math.random() * 3).toFixed(1)]; kb.forEach((b, i) => { b.textContent = v[i]; bump(b) }); await sl(650) } await sl(300) }
                 },
-                {
+                { // agent trace
                     b: ['3-tool agent', 'Unity Catalog'],
-                    h: '<div class="xu"></div><div class="ag">' + EP.map(([n, v, m]) => `<div class="ar"><div class="an"><span>${n}</span><em>${m}</em></div><div class="at"><i style="--w:${v}%"></i><b>$${v}</b></div></div>`).join('') + '</div>' + chsH,
-                    f: async p => { const u = p.querySelector('.xu'), cs = [...p.querySelectorAll('.chs span')]; await typ(u, 'Which endpoints cost the most?'); await sl(400); for (const c of cs) { c.classList.add('on'); await sl(380) } cs.forEach(c => c.classList.remove('on')); await grow(p.querySelectorAll('.ar'), 420); await sl(900) }
+                    h: `<div class="xu" data-full="Which endpoints cost the most?"></div><div class="ztr">${[['Cost query', 'Pulled cost per endpoint'], ['Endpoint lookup', 'Found 50+ serving endpoints'], ['MCP map', 'Linked endpoints to MCP-1, 2, 3']].map(([a, b]) => `<div class="zst"><s></s><span>${a}</span><em>${b}</em></div>`).join('')}</div><div class="xa" data-full="Top cost: summarize-claims-agent ($92), via MCP-1."></div>`,
+                    f: async p => { const u = p.querySelector('.xu'), a = p.querySelector('.xa'); await typ(u, u.dataset.full); await sl(400); for (const s of p.querySelectorAll('.zst')) { s.classList.add('run'); await sl(600); s.classList.replace('run', 'ok'); await sl(200) } await typ(a, a.dataset.full, 22); await sl(1000) }
                 }
             ], 'Illustrative names and numbers');
-            // ---------- Havells ----------
-            const SH = [['Purchase frequency', 78], ['Service quality', 58], ['Price sensitivity', -46], ['Delivery delays', -70], ['Warranty use', 32]], MISS = [4, 9, 15, 21, 26, 29];
+            const FP = [['Purchase frequency', -12], ['Service quality', -8], ['Price sensitivity', 14], ['Delivery delays', 20], ['Warranty use', -5]];
             mk(J[1], [
-                {
+                { // merge quarters
                     b: ['1.8M users and retailers'],
-                    h: xs(['Q1', 'Q2', 'Q3', 'Q4'].map((q, i) => `<rect class="xb" x="${14 + i * 40}" y="78" width="28" height="22" rx="3" fill="${V}"/>` + T(28 + i * 40, 113, q, 'middle')).join('') + T(184, 62, '→', 'middle', 'xt') + `<rect class="xb" x="210" y="12" width="64" height="88" rx="4" fill="${G}"/>` + T(242, 113, 'Unified dataset', 'middle'), '0 0 300 120') + '<div class="tk">Users and retailers analysed <b>0</b>M</div>',
-                    f: async p => { const bs = p.querySelectorAll('.xb'); await grow([...bs].slice(0, 4), 350); await sl(500); bs[4].classList.add('on'); ct(p.querySelector('.tk b'), 1.8, 1500, 1); await sl(2000) }
+                    h: `<div class="zmz">${['Q1', 'Q2', 'Q3', 'Q4'].map((q, i) => `<div class="zqc" style="--i:${i}"><b>${q}</b><i></i><i></i><i></i></div>`).join('')}<div class="zun"><b>0</b>M<span>users + retailers</span></div></div><div class="tk">Merging 4 quarters into one dataset</div>`,
+                    f: async p => { const z = p.querySelector('.zmz'); z.classList.remove('m'); await sl(1000); z.classList.add('m'); await sl(500); ct(p.querySelector('.zun b'), 1.8, 1400, 1); await sl(2400) }
                 },
-                {
+                { // force plot
                     b: ['SHAP drivers'],
-                    h: xs('<line x1="200" y1="0" x2="200" y2="104" stroke="#ffffff33"/>' + SH.map(([n, v], i) => T(0, 17 + i * 20, n) + `<rect class="xh${v < 0 ? ' neg' : ''}" x="${v < 0 ? 200 + v * 1.1 : 200}" y="${8 + i * 20}" width="${Math.abs(v) * 1.1}" height="13" rx="3" fill="${v < 0 ? PK : G}"/>`).join(''), '0 0 300 108') + '<div class="tk">Teal pushes loyalty up · pink pushes churn up</div>',
-                    f: async p => { await grow(p.querySelectorAll('.xh'), 380); await sl(1800) }
+                    h: `<div class="zfg"><span>Stays</span><span>Churns</span><div class="zbar"><i class="znd" style="left:50%"></i></div></div><div class="zfc">${FP.map(([n, v]) => `<span class="${v < 0 ? 'zdn' : 'zup'}">${n} ${v < 0 ? '↓' : '↑'}</span>`).join('')}</div><div class="tk">Churn risk <b>50</b>%</div>`,
+                    f: async p => { const nd = p.querySelector('.znd'), cs = p.querySelectorAll('.zfc span'), b = p.querySelector('.tk b'); let v = 50; for (let i = 0; i < 5; i++) { cs[i].classList.add('on'); v += FP[i][1]; nd.style.left = v + '%'; b.textContent = v; bump(b); await sl(700) } await sl(1500) }
                 },
-                {
+                { // confusion matrix
                     b: ['80% accuracy'],
-                    h: xs(`<circle cx="55" cy="50" r="34" fill="none" stroke="#ffffff1c" stroke-width="9"/><circle class="xdash" cx="55" cy="50" r="34" pathLength="1" fill="none" stroke="${G}" stroke-width="9" stroke-linecap="round" transform="rotate(-90 55 50)" style="stroke-dashoffset:1"/><text class="xbig" x="55" y="57" text-anchor="middle"><tspan>0</tspan>%</text>` +
-                        Array.from({ length: 30 }, (_, i) => `<circle class="xd${MISS.includes(i) ? ' fa' : ''}" cx="${150 + i % 10 * 14}" cy="${30 + Math.floor(i / 10) * 18}" r="5"/>`).join(''), '0 0 300 100') + '<div class="tk">Teal: predicted right · amber: missed</div>',
-                    f: async p => { const ds = p.querySelectorAll('.xd'); for (let i = 0; i < 30; i++) { ds[i].classList.add('on'); await sl(55) } const r = p.querySelector('.xdash'); r.style.strokeDashoffset = .2; r.classList.add('on'); ct(p.querySelector('.xbig tspan'), 80, 1500); await sl(2000) }
+                    h: `<div class="zcm"><i></i><span>Predicted +</span><span>Predicted −</span><span>Actual +</span><div class="zc t"><b>0</b></div><div class="zc w"><b>0</b></div><span>Actual −</span><div class="zc w"><b>0</b></div><div class="zc t"><b>0</b></div></div><div class="tk">Accuracy on unseen customers <b>0</b>%</div>`,
+                    f: async p => { const cs = p.querySelectorAll('.zc'), N = [42, 9, 11, 38]; for (let i = 0; i < 4; i++) { cs[i].classList.add('on'); ct(cs[i].querySelector('b'), N[i], 700); await sl(500) } ct(p.querySelector('.tk b'), 80, 1200); await sl(2000) }
                 }
-            ], 'Illustrative: 30 sample customers');
-            // ---------- MAQ ----------
-            const LG = ['Hello', 'Hola', 'Bonjour', 'Hallo', 'Ciao'];
+            ], 'Illustrative: 100 sample customers');
             mk(J[2], [
-                {
+                { // app builds up
                     b: ['+20% engagement'],
-                    h: xs(`<line x1="14" y1="96" x2="290" y2="96" stroke="#ffffff22"/><path d="M20 80 L270 72" stroke="#ffffff44" stroke-dasharray="4 4" fill="none"/><path class="xarea" d="M20 80 C70 76 100 66 140 56 S210 36 270 22 L270 96 L20 96Z" fill="${V}33"/><path class="xdash" d="M20 80 C70 76 100 66 140 56 S210 36 270 22" pathLength="1" fill="none" stroke="${V}" stroke-width="3" stroke-linecap="round"/><circle class="xg" cx="270" cy="22" r="5" style="fill:${G}"/>` + T(20, 109, 'Before') + T(270, 109, 'After', 'end') + T(262, 14, '+20%', 'end', 'xv'), '0 0 300 114') + '<div class="tk">Engagement and satisfaction +<b>0</b>%</div>',
-                    f: async p => { p.querySelector('.xdash').classList.add('on'); p.querySelector('.xarea').classList.add('on'); ct(p.querySelector('.tk b'), 20, 1600); await sl(1800); p.querySelector('.xg').classList.add('on'); p.querySelector('.xv').classList.add('on'); await sl(1500) }
+                    h: `<div class="zbw"><div class="zbh"><i></i><i></i><i></i></div><div class="zbb"><div class="zbk hd"></div><div class="zbk"></div><div class="zbk"></div><div class="zbk hf2"></div></div></div><div class="zsr"><span>Satisfaction</span><div>${'<i>★</i>'.repeat(5)}</div></div><div class="tk">Engagement and satisfaction +<b>0</b>%</div>`,
+                    f: async p => { await grow(p.querySelectorAll('.zbk'), 350); ct(p.querySelector('.tk b'), 20, 1500); await grow(p.querySelectorAll('.zsr i'), 280); await sl(1600) }
                 },
-                {
+                { // kanban
                     b: ['30+ features', '100% on time'],
-                    h: xs(Array.from({ length: 20 }, (_, i) => `<rect class="xb" x="${6 + i * 14.5}" y="${90 - (i + 1) * 3.9}" width="10" height="${(i + 1) * 3.9}" rx="2" fill="${G}"/>` + (i % 5 == 4 ? T(11 + i * 14.5, 100, i + 1, 'middle') : '')).join(''), '0 0 300 104') + '<div class="tk">Sprints <b>0</b>/20 · Features <b>0</b>+ · On time <b>0</b>%</div>',
-                    f: async p => { const bs = p.querySelectorAll('.xb'), [a, b, c] = tkb(p); for (let i = 0; i < 20; i++) { bs[i].classList.add('on'); a.textContent = i + 1; b.textContent = Math.round((i + 1) * 1.5); c.textContent = 100; await sl(130) } await sl(1500) }
+                    h: `<div class="zkb"><h6>To do</h6><h6>Doing</h6><h6>Done</h6>${[0, 1, 2, 3].map(r => `<i class="ztk" style="--c:0;--r:${r}"></i>`).join('')}</div><div class="tk">Sprints <b>0</b>/20 · Features <b>0</b>+ · On time <b>0</b>%</div>`,
+                    f: async p => { const ts = p.querySelectorAll('.ztk'), [a, b, c] = tkb(p); for (let i = 0; i < 4; i++) { ts[i].style.setProperty('--c', 1); await sl(450); ts[i].style.setProperty('--c', 2); ts[i].classList.add('ok'); a.textContent = (i + 1) * 5; b.textContent = Math.round((i + 1) * 7.5); c.textContent = 100; await sl(450) } await sl(1600); ts.forEach(t => { t.classList.remove('ok'); t.style.setProperty('--c', 0) }) }
                 },
-                {
+                { // automation
                     b: ['-80% comms effort'],
-                    h: xs(T(0, 20, 'Manual effort') + `<rect class="xh" x="90" y="8" width="190" height="16" rx="4" fill="${A}"/>` + T(92, 20, '100%', 'start', 'xv') + T(0, 52, 'With Logic Apps') + `<rect class="xh" x="90" y="40" width="38" height="16" rx="4" fill="${G}"/>` + T(132, 52, '20%', 'start', 'xv') + T(90, 78, 'Azure Logic Apps send routine updates automatically'), '0 0 300 86') + '<div class="tk">Manual communication effort -<b>0</b>%</div>',
-                    f: async p => { const hs = p.querySelectorAll('.xh'), vs = p.querySelectorAll('.xv'); hs[0].classList.add('on'); vs[0].classList.add('on'); await sl(900); hs[1].classList.add('on'); vs[1].classList.add('on'); ct(p.querySelector('.tk b'), 80, 1400); await sl(2000) }
+                    h: `<div class="zml">${'<i>✉</i>'.repeat(10)}</div><div class="zgr"><b>⚙</b><span>Azure Logic Apps</span></div><div class="tk">Manual communication effort -<b>0</b>%</div>`,
+                    f: async p => { const ms = p.querySelectorAll('.zml i'), g = p.querySelector('.zgr'); ms.forEach(m => m.classList.remove('gone')); await sl(600); g.classList.add('spin'); ct(p.querySelector('.tk b'), 80, 2000); for (let i = 0; i < 8; i++) { ms[i].classList.add('gone'); await sl(260) } g.classList.remove('spin'); await sl(1800) }
                 },
-                {
+                { // translate + reach
                     b: ['+40% reach'],
-                    h: '<div class="lang">Hello</div><div class="lcs"><span>EN</span><span>ES</span><span>FR</span><span>DE</span><span>IT</span></div>' + xs(T(0, 14, 'Before') + `<rect class="xh" x="90" y="4" width="130" height="14" rx="4" fill="${V}"/>` + T(0, 38, 'With translation') + `<rect class="xh" x="90" y="28" width="130" height="14" rx="4" fill="${G}" style="transition-duration:2s"/>` + T(228, 39, '+40%', 'start', 'xv'), '0 0 300 48') + '<div class="tk">Azure Cognitive Service · reach +<b>0</b>%</div>',
+                    h: `<div class="lang">Hello</div><div class="lcs"><span>EN</span><span>ES</span><span>FR</span><span>DE</span><span>IT</span></div><div class="zpp">${'<i class="pe"></i>'.repeat(10)}${'<i class="pe n"></i>'.repeat(4)}</div><div class="tk">Azure Cognitive Service · reach +<b>0</b>%</div>`,
                     f: async p => {
-                        const l = p.querySelector('.lang'), cs = [...p.querySelectorAll('.lcs span')], hs = p.querySelectorAll('.xh'); hs[0].classList.add('on'); hs[1].classList.add('on'); hs[1].setAttribute('width', 182); ct(p.querySelector('.tk b'), 40, 2000); cs[0].classList.add('on');
-                        for (const [k, w] of ['Hola', 'Bonjour', 'Hallo', 'Ciao'].entries()) { await sl(420); l.style.opacity = 0; await sl(150); l.textContent = w; l.style.opacity = 1; cs.forEach(c => c.classList.remove('on')); cs[k + 1].classList.add('on') } p.querySelector('.xv').classList.add('on'); await sl(900)
+                        const l = p.querySelector('.lang'), cs = [...p.querySelectorAll('.lcs span')], ns = p.querySelectorAll('.pe.n'); ct(p.querySelector('.tk b'), 40, 2000); cs[0].classList.add('on');
+                        for (const [k, w] of ['Hola', 'Bonjour', 'Hallo', 'Ciao'].entries()) { await sl(420); l.style.opacity = 0; await sl(150); l.textContent = w; l.style.opacity = 1; cs.forEach(c => c.classList.remove('on')); cs[k + 1].classList.add('on'); ns[k].classList.add('on') } await sl(1000)
                     }
                 }
             ], 'Illustrative visualization');
